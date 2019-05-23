@@ -12,7 +12,7 @@ public class DemoItem<Target, Value> {
     public let keyPath: KeyPath<Target, Value>
     public let demoDescription: String?
     public let cell: (UITableViewCell & DemoCellShowable).Type
-    public var limit: Limit?
+    public let info: DemoInfomation
     
     public let isReloadWhenSet: Bool = true
     
@@ -20,11 +20,11 @@ public class DemoItem<Target, Value> {
         keyPath: KeyPath<Target, Value>,
         demoDescription: String? = nil,
         cell: (UITableViewCell & DemoCellShowable).Type? = nil,
-        limit: Limit? = nil) {
+        info: DemoInfomation = .nothing) {
         self.keyPath = keyPath
         self.demoDescription = demoDescription
         self.cell = cell ?? DemoConfig.default[Value.self] ?? DemoBasicCell.self
-        self.limit = limit
+        self.info = info
     }
 }
 

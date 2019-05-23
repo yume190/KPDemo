@@ -7,15 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A835584D229664110032CD71 /* DemoCell+Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A835584C229664110032CD71 /* DemoCell+Picker.swift */; };
+		A835584E229664350032CD71 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B7122294E3320012166B /* DemoCell.swift */; };
+		A835584F229664350032CD71 /* DemoCell+CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B7132294E3320012166B /* DemoCell+CGSize.swift */; };
+		A8355850229664350032CD71 /* DemoCell+Primtive.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B7142294E3320012166B /* DemoCell+Primtive.swift */; };
+		A8355851229664350032CD71 /* DemoCell+Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B7152294E3320012166B /* DemoCell+Bool.swift */; };
+		A8355852229664350032CD71 /* DemoCell+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B7162294E3320012166B /* DemoCell+CGPoint.swift */; };
+		A8355853229664350032CD71 /* DemoCell+CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B7172294E3320012166B /* DemoCell+CGRect.swift */; };
+		A8355854229664350032CD71 /* DemoCell+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B7182294E3320012166B /* DemoCell+UIColor.swift */; };
+		A83558552296643E0032CD71 /* Demo+Demoable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B71B2294E3320012166B /* Demo+Demoable.swift */; };
+		A83558562296643E0032CD71 /* Demoable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B71C2294E3320012166B /* Demoable.swift */; };
+		A8355857229664430032CD71 /* DemoConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B71E2294E3320012166B /* DemoConfig.swift */; };
+		A8355858229664430032CD71 /* Limit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B71F2294E3320012166B /* Limit.swift */; };
+		A8355859229664470032CD71 /* DemoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B7212294E3320012166B /* DemoItem.swift */; };
+		A835585A229664470032CD71 /* DemoShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B7222294E3320012166B /* DemoShowable.swift */; };
+		A835585B229664470032CD71 /* DemoableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B7232294E3320012166B /* DemoableItem.swift */; };
+		A835585C2296644B0032CD71 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B7242294E3320012166B /* Todo.swift */; };
+		A835585D229664500032CD71 /* DemoCellShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B7262294E3320012166B /* DemoCellShowable.swift */; };
+		A835585E229664500032CD71 /* DemoCellRegistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A838B7272294E3320012166B /* DemoCellRegistable.swift */; };
+		A835586A2296656B0032CD71 /* UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83558682296656B0032CD71 /* UIExtension.swift */; };
+		A835586B2296656B0032CD71 /* View+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = A83558692296656B0032CD71 /* View+Custom.swift */; };
+		A835586D22966ABF0032CD71 /* DemoInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A835586C22966ABF0032CD71 /* DemoInformation.swift */; };
 		A838B7082294E3220012166B /* KPDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = A838B7062294E3220012166B /* KPDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A835584C229664110032CD71 /* DemoCell+Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DemoCell+Picker.swift"; sourceTree = "<group>"; };
+		A83558682296656B0032CD71 /* UIExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
+		A83558692296656B0032CD71 /* View+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Custom.swift"; sourceTree = "<group>"; };
+		A835586C22966ABF0032CD71 /* DemoInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoInformation.swift; sourceTree = "<group>"; };
 		A838B7032294E3220012166B /* KPDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KPDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A838B7062294E3220012166B /* KPDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KPDemo.h; sourceTree = "<group>"; };
 		A838B7072294E3220012166B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A838B70F2294E3320012166B /* View+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Custom.swift"; sourceTree = "<group>"; };
-		A838B7102294E3320012166B /* UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
 		A838B7122294E3320012166B /* DemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
 		A838B7132294E3320012166B /* DemoCell+CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DemoCell+CGSize.swift"; sourceTree = "<group>"; };
 		A838B7142294E3320012166B /* DemoCell+Primtive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DemoCell+Primtive.swift"; sourceTree = "<group>"; };
@@ -46,6 +69,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A8355863229665300032CD71 /* OtherTool */ = {
+			isa = PBXGroup;
+			children = (
+				A83558682296656B0032CD71 /* UIExtension.swift */,
+				A83558692296656B0032CD71 /* View+Custom.swift */,
+			);
+			path = OtherTool;
+			sourceTree = "<group>";
+		};
 		A838B6F92294E3220012166B = {
 			isa = PBXGroup;
 			children = (
@@ -65,22 +97,13 @@
 		A838B7052294E3220012166B /* KPDemo */ = {
 			isa = PBXGroup;
 			children = (
+				A8355863229665300032CD71 /* OtherTool */,
 				A838B7112294E3320012166B /* Cell */,
 				A838B7192294E3320012166B /* Core */,
-				A838B70E2294E3320012166B /* Other Tool */,
 				A838B7062294E3220012166B /* KPDemo.h */,
 				A838B7072294E3220012166B /* Info.plist */,
 			);
 			path = KPDemo;
-			sourceTree = "<group>";
-		};
-		A838B70E2294E3320012166B /* Other Tool */ = {
-			isa = PBXGroup;
-			children = (
-				A838B70F2294E3320012166B /* View+Custom.swift */,
-				A838B7102294E3320012166B /* UIExtension.swift */,
-			);
-			path = "Other Tool";
 			sourceTree = "<group>";
 		};
 		A838B7112294E3320012166B /* Cell */ = {
@@ -93,6 +116,7 @@
 				A838B7162294E3320012166B /* DemoCell+CGPoint.swift */,
 				A838B7172294E3320012166B /* DemoCell+CGRect.swift */,
 				A838B7182294E3320012166B /* DemoCell+UIColor.swift */,
+				A835584C229664110032CD71 /* DemoCell+Picker.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -100,10 +124,10 @@
 		A838B7192294E3320012166B /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				A838B71A2294E3320012166B /* Demo */,
-				A838B71D2294E3320012166B /* Config */,
-				A838B7202294E3320012166B /* DemoItem */,
 				A838B7242294E3320012166B /* Todo.swift */,
+				A838B71D2294E3320012166B /* Config */,
+				A838B71A2294E3320012166B /* Demo */,
+				A838B7202294E3320012166B /* DemoItem */,
 				A838B7252294E3320012166B /* CellProtocol */,
 			);
 			path = Core;
@@ -123,6 +147,7 @@
 			children = (
 				A838B71E2294E3320012166B /* DemoConfig.swift */,
 				A838B71F2294E3320012166B /* Limit.swift */,
+				A835586C22966ABF0032CD71 /* DemoInformation.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -189,6 +214,7 @@
 				TargetAttributes = {
 					A838B7022294E3220012166B = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -224,6 +250,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A835585E229664500032CD71 /* DemoCellRegistable.swift in Sources */,
+				A835586B2296656B0032CD71 /* View+Custom.swift in Sources */,
+				A835584E229664350032CD71 /* DemoCell.swift in Sources */,
+				A835586D22966ABF0032CD71 /* DemoInformation.swift in Sources */,
+				A8355858229664430032CD71 /* Limit.swift in Sources */,
+				A8355852229664350032CD71 /* DemoCell+CGPoint.swift in Sources */,
+				A835586A2296656B0032CD71 /* UIExtension.swift in Sources */,
+				A835585A229664470032CD71 /* DemoShowable.swift in Sources */,
+				A83558562296643E0032CD71 /* Demoable.swift in Sources */,
+				A835584D229664110032CD71 /* DemoCell+Picker.swift in Sources */,
+				A8355853229664350032CD71 /* DemoCell+CGRect.swift in Sources */,
+				A835585D229664500032CD71 /* DemoCellShowable.swift in Sources */,
+				A835585B229664470032CD71 /* DemoableItem.swift in Sources */,
+				A8355857229664430032CD71 /* DemoConfig.swift in Sources */,
+				A8355851229664350032CD71 /* DemoCell+Bool.swift in Sources */,
+				A8355859229664470032CD71 /* DemoItem.swift in Sources */,
+				A835585C2296644B0032CD71 /* Todo.swift in Sources */,
+				A83558552296643E0032CD71 /* Demo+Demoable.swift in Sources */,
+				A8355850229664350032CD71 /* DemoCell+Primtive.swift in Sources */,
+				A8355854229664350032CD71 /* DemoCell+UIColor.swift in Sources */,
+				A835584F229664350032CD71 /* DemoCell+CGSize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +402,7 @@
 		A838B70C2294E3220012166B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -372,6 +420,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.KPDemo;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -380,6 +429,7 @@
 		A838B70D2294E3220012166B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;

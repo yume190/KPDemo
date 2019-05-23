@@ -8,15 +8,15 @@
 
 import UIKit
 
-public class DemoPrimtiveCell: DemoBasicCell {
+public final class DemoPrimtiveCell: DemoBasicCell {
     // MARK: UI
-    lazy var value: UISlider = UISlider.custom { (slider) in
+    private final lazy var value: UISlider = UISlider.custom { (slider) in
         slider.addTarget(self, action: #selector(self.valueing(sender:)), for: .valueChanged)
     }
-    lazy var valueLabel: UILabel = UILabel.custom { (label) in
+    private final lazy var valueLabel: UILabel = UILabel.custom { (label) in
         label.font = UIFont.systemFont(ofSize: 15)
     }
-    private lazy var valueStack: UIStackView = UIStackView.custom { (stack) in
+    private final  lazy var valueStack: UIStackView = UIStackView.custom { (stack) in
         stack.arrange(views: [
             self.valueLabel,
             self.value,
@@ -24,7 +24,7 @@ public class DemoPrimtiveCell: DemoBasicCell {
     }
     
     // MARK: Values
-    var _value: NSNumber = NSNumber(value: 0)
+    private final var _value: NSNumber = NSNumber(value: 0)
     
     final override public func setup() {
         super.setup()
@@ -35,23 +35,24 @@ public class DemoPrimtiveCell: DemoBasicCell {
             ])
     }
     
-    final override func getting() {
-        super.getting()
+    override final func setupDefault(showable: DemoShowable) {
+        super.setupDefault(showable: showable)
+        if case .limit(let limit) = showable.info {
+            value.maximumValue = Float(limit.max)
+            value.minimumValue = Float(limit.min)
+        }
+    }
+    
+    final override func getValue() {
+        super.getValue()
         
         if let value = self.getter?() as? NSNumber {
             self._value = value
             
-            self.valueLabel.text = String(format: "value: %.2f", self._value.floatValue)
+            self.valueLabel.text =
+                String(format: "value: %.2f", self._value.floatValue)
 
             self.value.value = self._value.floatValue
-        }
-    }
-    
-    public override func show<T>(showable: DemoShowable, item: Demo<T>) {
-        super.show(showable: showable, item: item)
-        if let limit = showable.limit {
-            value.maximumValue = Float(limit.max)
-            value.minimumValue = Float(limit.min)
         }
     }
 }
@@ -61,7 +62,7 @@ extension DemoPrimtiveCell {
     @objc func valueing(sender: UISlider) {
         self._value = NSNumber(value: sender.value)
         self.setter?(self._value)
-        self.getting()
+        self.getValue()
     }
 }
 

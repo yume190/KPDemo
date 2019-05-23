@@ -9,10 +9,11 @@
 import UIKit
 
 public class DemoBoolCell: DemoBasicCell {
-    lazy var boolSwitch: UISwitch = UISwitch()
-    lazy var boolValueLabel: UILabel = UILabel.custom()
+    private final lazy var boolSwitch: UISwitch = UISwitch()
+    private final lazy var boolValueLabel: UILabel = UILabel.custom()
     
-    final override public func setup() {
+    override
+    final public func setup() {
         super.setup()
         self.basicValueLabel.isHidden = true
         let _stack: UIStackView = UIStackView.custom { (stack: UIStackView) in
@@ -31,27 +32,25 @@ public class DemoBoolCell: DemoBasicCell {
         )
     }
     
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    @objc func switching(sender: UISwitch) {
-        self.setter?(sender.isOn)
-        self.getting()
-    }
-    
     override public func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
     
-    final override func getting() {
-        super.getting()
+    internal final override func getValue() {
+        super.getValue()
         if let value = self.getter?() as? Bool {
             self.boolValueLabel.text = "\(value)"
             self.boolSwitch.isOn = value
         }
+    }
+}
+
+extension DemoBoolCell {
+    @objc
+    private final func switching(sender: UISwitch) {
+        self.setter?(sender.isOn)
+        self.getValue()
     }
 }
 
@@ -60,3 +59,4 @@ extension DemoBoolCell: DemoCellRegistable {
         return andOptional(_type: Bool.self)
     }
 }
+

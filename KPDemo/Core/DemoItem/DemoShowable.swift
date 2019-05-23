@@ -11,7 +11,7 @@ import UIKit
 public protocol DemoShowable: class {
     var demoDescription: String? {get}
     var cell: (UITableViewCell & DemoCellShowable).Type {get}
-    var limit: Limit? {get}
+    var info: DemoInfomation {get}
     
     var isReloadWhenSet: Bool {get}
     

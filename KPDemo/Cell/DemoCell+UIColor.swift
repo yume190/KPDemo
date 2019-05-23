@@ -8,58 +8,58 @@
 
 import UIKit
 
-public class DemoUIColorCell: DemoBasicCell {
+public final class DemoUIColorCell: DemoBasicCell {
     // MARK: UI
-    lazy var redStepper: UISlider = UISlider.custom { (slider) in
+    private final lazy var redStepper: UISlider = UISlider.custom { (slider) in
         slider.addTarget(self, action: #selector(self.reding(sender:)), for: .valueChanged)
     }
-    lazy var redValueLabel: UILabel = UILabel.custom { (label) in
+    private final lazy var redValueLabel: UILabel = UILabel.custom { (label) in
         label.font = UIFont.systemFont(ofSize: 15)
         label.widthAnchor.constraint(equalToConstant: 60).isActive = true
     }
-    private lazy var redStack: UIStackView = UIStackView.custom { (stack) in
+    private final lazy var redStack: UIStackView = UIStackView.custom { (stack) in
         stack.arrange(views: [
             self.redValueLabel,
             self.redStepper,
             ])
     }
     
-    lazy var greenStepper: UISlider = UISlider.custom { (slider) in
+    private final lazy var greenStepper: UISlider = UISlider.custom { (slider) in
         slider.addTarget(self, action: #selector(self.greening(sender:)), for: .valueChanged)
     }
-    lazy var greenValueLabel: UILabel = UILabel.custom { (label) in
+    private final lazy var greenValueLabel: UILabel = UILabel.custom { (label) in
         label.font = UIFont.systemFont(ofSize: 15)
         label.widthAnchor.constraint(equalToConstant: 60).isActive = true
     }
-    private lazy var greenStack: UIStackView = UIStackView.custom { (stack) in
+    private final lazy var greenStack: UIStackView = UIStackView.custom { (stack) in
         stack.arrange(views: [
             self.greenValueLabel,
             self.greenStepper,
             ])
     }
     
-    lazy var blueStepper: UISlider = UISlider.custom { (slider) in
+    private final lazy var blueStepper: UISlider = UISlider.custom { (slider) in
         slider.addTarget(self, action: #selector(self.blueing(sender:)), for: .valueChanged)
     }
-    lazy var blueValueLabel: UILabel = UILabel.custom { (label) in
+    private final lazy var blueValueLabel: UILabel = UILabel.custom { (label) in
         label.font = UIFont.systemFont(ofSize: 15)
         label.widthAnchor.constraint(equalToConstant: 60).isActive = true
     }
-    private lazy var blueStack: UIStackView = UIStackView.custom { (stack) in
+    private final lazy var blueStack: UIStackView = UIStackView.custom { (stack) in
         stack.arrange(views: [
             self.blueValueLabel,
             self.blueStepper,
             ])
     }
     
-    lazy var alphaStepper: UISlider = UISlider.custom { (slider) in
+    private final lazy var alphaStepper: UISlider = UISlider.custom { (slider) in
         slider.addTarget(self, action: #selector(self.alphaing(sender:)), for: .valueChanged)
     }
-    lazy var alphaValueLabel: UILabel = UILabel.custom { (label) in
+    private final lazy var alphaValueLabel: UILabel = UILabel.custom { (label) in
         label.font = UIFont.systemFont(ofSize: 15)
         label.widthAnchor.constraint(equalToConstant: 60).isActive = true
     }
-    private lazy var alphaStack: UIStackView = UIStackView.custom { (stack) in
+    private final lazy var alphaStack: UIStackView = UIStackView.custom { (stack) in
         self.alphaStepper.maximumValue = 100
         stack.arrange(views: [
             self.alphaValueLabel,
@@ -68,11 +68,11 @@ public class DemoUIColorCell: DemoBasicCell {
     }
     
     // MARK: Values
-    var _red: CGFloat = 1
-    var _green: CGFloat = 1
-    var _blue: CGFloat = 1
-    var _alpha: CGFloat = 1
-    var _color: UIColor {
+    private final var _red: CGFloat = 1
+    private final var _green: CGFloat = 1
+    private final var _blue: CGFloat = 1
+    private final var _alpha: CGFloat = 1
+    private final var _color: UIColor {
         return UIColor(red: _red/255, green: _green/255, blue: _blue/255, alpha: _alpha/100)
     }
     
@@ -88,8 +88,8 @@ public class DemoUIColorCell: DemoBasicCell {
         ])
     }
     
-    final override func getting() {
-        super.getting()
+    final override func getValue() {
+        super.getValue()
         
         if let value = self.getter?() as? UIColor {
             self.getting(ui: value)
@@ -102,7 +102,7 @@ public class DemoUIColorCell: DemoBasicCell {
         }
     }
     
-    final func getting(ui: UIColor) {
+    private final func getting(ui: UIColor) {
         ui.getRed(&_red, green: &_green, blue: &_blue, alpha: &_alpha)
         
         _red = CGFloat(Int(_red*255))
@@ -124,32 +124,36 @@ public class DemoUIColorCell: DemoBasicCell {
 
 // MARK: Actions
 extension DemoUIColorCell {
-    @objc func reding(sender: UISlider) {
+    @objc
+    private final func reding(sender: UISlider) {
         self._red = CGFloat(sender.value)
         self.setter?(self._color)
         self.setter?(self._color.cgColor)
-        self.getting()
+        self.getValue()
     }
     
-    @objc func greening(sender: UISlider) {
+    @objc
+    private final func greening(sender: UISlider) {
         self._green = CGFloat(sender.value)
         self.setter?(self._color)
         self.setter?(self._color.cgColor)
-        self.getting()
+        self.getValue()
     }
     
-    @objc func blueing(sender: UISlider) {
+    @objc
+    private final func blueing(sender: UISlider) {
         self._blue = CGFloat(sender.value)
         self.setter?(self._color)
         self.setter?(self._color.cgColor)
-        self.getting()
+        self.getValue()
     }
     
-    @objc func alphaing(sender: UISlider) {
+    @objc
+    private final func alphaing(sender: UISlider) {
         self._alpha = CGFloat(sender.value)
         self.setter?(self._color)
         self.setter?(self._color.cgColor)
-        self.getting()
+        self.getValue()
     }
 }
 

@@ -8,30 +8,31 @@
 
 import UIKit
 
-public class DemoBasicCell: UITableViewCell, DemoCellShowable {
-    private lazy var nameLabel: UILabel = UILabel.custom()
-    private lazy var isNilSwitch: UISwitch = UISwitch()
-    private lazy var _stack: UIStackView = UIStackView.custom { (stack: UIStackView) in
+open class DemoBasicCell: UITableViewCell, DemoCellShowable {
+    private final lazy var nameLabel: UILabel = UILabel.custom()
+    private final lazy var isNilSwitch: UISwitch = UISwitch()
+    private final lazy var _stack: UIStackView = UIStackView.custom { (stack: UIStackView) in
         stack.arrange(views: [
             self.nameLabel,
             self.isNilSwitch
         ])
     }
     
-    private lazy var demoDescriptionLabel: UILabel = UILabel.custom { (label) in
-        label.font = UIFont.systemFont(ofSize: 15)
-    }
-    
-    private lazy var typeLabel: UILabel = UILabel.custom { (label) in
-        label.font = UIFont.systemFont(ofSize: 15)
-    }
-    
-    lazy var basicValueLabel: UILabel = UILabel.custom { (label) in
+    private final lazy var demoDescriptionLabel: UILabel = UILabel.custom { (label) in
         label.font = UIFont.systemFont(ofSize: 15)
         label.numberOfLines = 0
     }
     
-    lazy var stack: UIStackView = UIStackView.custom { (stack) in
+    private final lazy var typeLabel: UILabel = UILabel.custom { (label) in
+        label.font = UIFont.systemFont(ofSize: 15)
+    }
+    
+    internal final lazy var basicValueLabel: UILabel = UILabel.custom { (label) in
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.numberOfLines = 0
+    }
+    
+    internal final lazy var stack: UIStackView = UIStackView.custom { (stack) in
         stack.axis = .vertical
         
         self.contentView.addSubview(stack)
@@ -66,43 +67,23 @@ public class DemoBasicCell: UITableViewCell, DemoCellShowable {
         )
     }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.setup()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.setup()
     }
     
-    override public func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override public func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    open func show<T>(showable: DemoShowable, item: Demo<T>) {
+        self.setupGetterAndSetter(showable: showable, item: item)
+        self.setupDefault(showable: showable)
+        self.getValue()
     }
     
-    @objc private func switchNil(sender: UISwitch) {
-        if sender.isOn {
-            self.setter?(nil)
-        }
-        self.getting()
-    }
-    
-    func getting() {
-        guard let value = self.getter?() else {return}
-        self.basicValueLabel.text = "\(value)"
-        
-        let isOptional = Mirror(reflecting: value)
-            .displayStyle == .optional
-        self.isNilSwitch.isHidden = !isOptional
-    }
-    
-    public func show<T>(showable: DemoShowable, item: Demo<T>) {
+    private final func setupGetterAndSetter<T>(showable: DemoShowable, item: Demo<T>) {
         weak var _showable = showable
         self.getter = {
             return _showable?[item]
@@ -113,16 +94,36 @@ public class DemoBasicCell: UITableViewCell, DemoCellShowable {
                 self?.tableView?.reloadData()
             }
         }
-        
+    }
+    
+    internal func setupDefault(showable: DemoShowable) {
         self.nameLabel.text = showable.name
         
-//        self.typeLabel.isHidden = 
+        self.typeLabel.isHidden = DemoConfig.default.isShowType
         self.typeLabel.text = showable.valueTypeName
         
         self.demoDescriptionLabel.text = showable.demoDescription
         self.demoDescriptionLabel.isHidden = showable.demoDescription == nil
         
-        self.isNilSwitch.isHidden = true
-        self.getting()
+        guard let value = self.getter?() else {return}
+        let isOptional = Mirror(reflecting: value)
+            .displayStyle == .optional
+        self.isNilSwitch.isHidden = !showable.isWritable && !isOptional
+    }
+    
+    internal func getValue() {
+        guard let value = self.getter?() else {return}
+        self.basicValueLabel.text = "\(value)"
+    }
+}
+
+// MARK: Action
+extension DemoBasicCell {
+    @objc
+    private final func switchNil(sender: UISwitch) {
+        if sender.isOn {
+            self.setter?(nil)
+        }
+        self.getValue()
     }
 }

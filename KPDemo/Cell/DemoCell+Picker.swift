@@ -34,10 +34,6 @@ public final class DemoPickerCell: DemoBasicCell {
         self.stack.addArrangedSubview(value)
     }
     
-//    override public func show<T>(showable: DemoShowable, item: Demo<T>) {
-//        super.show(showable: showable, item: item)
-//    }
-    
     override final func setupDefault(showable: DemoShowable) {
         super.setupDefault(showable: showable)
         if case .table(let table) = showable.info {

@@ -10,18 +10,7 @@ import UIKit
 
 public final class DemoPrimtiveCell: DemoBasicCell {
     // MARK: UI
-    private final lazy var value: UISlider = UISlider.custom { (slider) in
-        slider.addTarget(self, action: #selector(self.valueing(sender:)), for: .valueChanged)
-    }
-    private final lazy var valueLabel: UILabel = UILabel.custom { (label) in
-        label.font = UIFont.systemFont(ofSize: 15)
-    }
-    private final  lazy var valueStack: UIStackView = UIStackView.custom { (stack) in
-        stack.arrange(views: [
-            self.valueLabel,
-            self.value,
-            ])
-    }
+    private final lazy var value = UIStackView.customWithSlider()
     
     // MARK: Values
     private final var _value: NSNumber = NSNumber(value: 0)
@@ -31,15 +20,16 @@ public final class DemoPrimtiveCell: DemoBasicCell {
         self.basicValueLabel.isHidden = true
         
         stack.arrange(views: [
-            self.valueStack,
+            self.value.stack,
             ])
+        self.value.slider.addTarget(self, action: #selector(self.valueing(sender:)), for: .valueChanged)
     }
     
     override final func setupDefault(showable: DemoShowable) {
         super.setupDefault(showable: showable)
         if case .limit(let limit) = showable.info {
-            value.maximumValue = Float(limit.max)
-            value.minimumValue = Float(limit.min)
+            value.slider.maximumValue = Float(limit.max)
+            value.slider.minimumValue = Float(limit.min)
         }
     }
     
@@ -49,10 +39,10 @@ public final class DemoPrimtiveCell: DemoBasicCell {
         if let value = self.getter?() as? NSNumber {
             self._value = value
             
-            self.valueLabel.text =
+            self.value.label.text =
                 String(format: "value: %.2f", self._value.floatValue)
 
-            self.value.value = self._value.floatValue
+            self.value.slider.value = self._value.floatValue
         }
     }
 }

@@ -10,57 +10,10 @@ import UIKit
 
 public final class DemoCGRectCell: DemoBasicCell {
     // MARK: UI
-    private final lazy var xValue: UISlider = UISlider.custom { (slider) in
-        slider.addTarget(self, action: #selector(self.xing(sender:)), for: .valueChanged)
-    }
-    private final lazy var xValueLabel: UILabel = UILabel.custom { (label) in
-        label.font = UIFont.systemFont(ofSize: 15)
-    }
-    private final  lazy var xStack: UIStackView = UIStackView.custom { (stack) in
-        stack.arrange(views: [
-            self.xValueLabel,
-            self.xValue,
-            ])
-    }
-    
-    private final lazy var yValue: UISlider = UISlider.custom { (slider) in
-        slider.addTarget(self, action: #selector(self.ying(sender:)), for: .valueChanged)
-    }
-    private final lazy var yValueLabel: UILabel = UILabel.custom { (label) in
-        label.font = UIFont.systemFont(ofSize: 15)
-    }
-    private final lazy var yStack: UIStackView = UIStackView.custom { (stack) in
-        stack.arrange(views: [
-            self.yValueLabel,
-            self.yValue,
-            ])
-    }
-    
-    private final lazy var widthValue: UISlider = UISlider.custom { (slider) in
-        slider.addTarget(self, action: #selector(self.widthing(sender:)), for: .valueChanged)
-    }
-    private final lazy var widthValueLabel: UILabel = UILabel.custom { (label) in
-        label.font = UIFont.systemFont(ofSize: 15)
-    }
-    private final lazy var widthStack: UIStackView = UIStackView.custom { (stack) in
-        stack.arrange(views: [
-            self.widthValueLabel,
-            self.widthValue,
-            ])
-    }
-    
-    private final lazy var heightValue: UISlider = UISlider.custom { (slider) in
-        slider.addTarget(self, action: #selector(self.heighting(sender:)), for: .valueChanged)
-    }
-    private final lazy var heightValueLabel: UILabel = UILabel.custom { (label) in
-        label.font = UIFont.systemFont(ofSize: 15)
-    }
-    private final lazy var heightStack: UIStackView = UIStackView.custom { (stack) in
-        stack.arrange(views: [
-            self.heightValueLabel,
-            self.heightValue,
-            ])
-    }
+    private final lazy var x = UIStackView.customWithSlider()
+    private final lazy var y = UIStackView.customWithSlider()
+    private final lazy var width = UIStackView.customWithSlider()
+    private final lazy var height = UIStackView.customWithSlider()
     
     // MARK: Values
     private final var _rect: CGRect = .zero
@@ -70,29 +23,29 @@ public final class DemoCGRectCell: DemoBasicCell {
         self.basicValueLabel.isHidden = true
         
         stack.arrange(views: [
-            self.xStack,
-            self.yStack,
-            self.widthStack,
-            self.heightStack,
+            self.x.stack,
+            self.y.stack,
+            self.width.stack,
+            self.height.stack,
             ])
+        self.x.slider.addTarget(self, action: #selector(self.xing(sender:)), for: .valueChanged)
+        self.y.slider.addTarget(self, action: #selector(self.ying(sender:)), for: .valueChanged)
+        self.width.slider.addTarget(self, action: #selector(self.widthing(sender:)), for: .valueChanged)
+        self.height.slider.addTarget(self, action: #selector(self.heighting(sender:)), for: .valueChanged)
     }
-
-//    public override func show<T>(showable: DemoShowable, item: Demo<T>) {
-//        super.show(showable: showable, item: item)
-//    }
     
     override final func setupDefault(showable: DemoShowable) {
         super.setupDefault(showable: showable)
         if case .limit(let limit) = showable.info {
-            xValue.maximumValue = Float(limit.max)
-            yValue.maximumValue = Float(limit.max)
-            xValue.minimumValue = Float(limit.min)
-            yValue.minimumValue = Float(limit.min)
+            x.slider.maximumValue = Float(limit.max)
+            y.slider.maximumValue = Float(limit.max)
+            x.slider.minimumValue = Float(limit.min)
+            y.slider.minimumValue = Float(limit.min)
             
-            widthValue.maximumValue = Float(limit.max)
-            heightValue.maximumValue = Float(limit.max)
-            widthValue.minimumValue = Float(limit.min)
-            heightValue.minimumValue = Float(limit.min)
+            width.slider.maximumValue = Float(limit.max)
+            height.slider.maximumValue = Float(limit.max)
+            width.slider.minimumValue = Float(limit.min)
+            height.slider.minimumValue = Float(limit.min)
         }
     }
 
@@ -102,15 +55,15 @@ public final class DemoCGRectCell: DemoBasicCell {
         if let value = self.getter?() as? CGRect {
             self._rect = value
             
-            self.xValueLabel.text = String(format: "x: %.2f", self._rect.origin.x)
-            self.yValueLabel.text = String(format: "y: %.2f", self._rect.origin.y)
-            self.widthValueLabel.text = String(format: "width: %.2f", self._rect.size.width)
-            self.heightValueLabel.text = String(format: "height: %.2f", self._rect.size.height)
+            self.x.label.text = String(format: "x: %.2f", self._rect.origin.x)
+            self.y.label.text = String(format: "y: %.2f", self._rect.origin.y)
+            self.width.label.text = String(format: "width: %.2f", self._rect.size.width)
+            self.height.label.text = String(format: "height: %.2f", self._rect.size.height)
             
-            self.xValue.value = Float(self._rect.origin.x)
-            self.yValue.value = Float(self._rect.origin.y)
-            self.widthValue.value = Float(self._rect.size.width)
-            self.heightValue.value = Float(self._rect.size.height)
+            self.x.slider.value = Float(self._rect.origin.x)
+            self.y.slider.value = Float(self._rect.origin.y)
+            self.width.slider.value = Float(self._rect.size.width)
+            self.height.slider.value = Float(self._rect.size.height)
         }
     }
 }

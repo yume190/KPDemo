@@ -10,31 +10,8 @@ import UIKit
 
 public final class DemoCGSizeCell: DemoBasicCell {
     // MARK: UI
-    private final lazy var widthValue: UISlider = UISlider.custom { (slider) in
-        slider.addTarget(self, action: #selector(self.widthing(sender:)), for: .valueChanged)
-    }
-    private final lazy var widthValueLabel: UILabel = UILabel.custom { (label) in
-        label.font = UIFont.systemFont(ofSize: 15)
-    }
-    private final lazy var widthStack: UIStackView = UIStackView.custom { (stack) in
-        stack.arrange(views: [
-            self.widthValueLabel,
-            self.widthValue,
-            ])
-    }
-    
-    private final lazy var heightValue: UISlider = UISlider.custom { (slider) in
-        slider.addTarget(self, action: #selector(self.heighting(sender:)), for: .valueChanged)
-    }
-    private final lazy var heightValueLabel: UILabel = UILabel.custom { (label) in
-        label.font = UIFont.systemFont(ofSize: 15)
-    }
-    private final lazy var heightStack: UIStackView = UIStackView.custom { (stack) in
-        stack.arrange(views: [
-            self.heightValueLabel,
-            self.heightValue,
-            ])
-    }
+    private final lazy var width = UIStackView.customWithSlider()
+    private final lazy var height = UIStackView.customWithSlider()
     
     // MARK: Values
     private final var _size: CGSize = .zero
@@ -45,22 +22,21 @@ public final class DemoCGSizeCell: DemoBasicCell {
         self.basicValueLabel.isHidden = true
         
         stack.arrange(views: [
-            self.widthStack,
-            self.heightStack,
+            self.width.stack,
+            self.height.stack,
             ])
+        
+        self.width.slider.addTarget(self, action: #selector(self.widthing(sender:)), for: .valueChanged)
+        self.height.slider.addTarget(self, action: #selector(self.heighting(sender:)), for: .valueChanged)
     }
-    
-//    public override func show<T>(showable: DemoShowable, item: Demo<T>) {
-//        super.show(showable: showable, item: item)
-//    }
     
     override final func setupDefault(showable: DemoShowable) {
         super.setupDefault(showable: showable)
         if case .limit(let limit) = showable.info {
-            widthValue.maximumValue = Float(limit.max)
-            heightValue.maximumValue = Float(limit.max)
-            widthValue.minimumValue = Float(limit.min)
-            heightValue.minimumValue = Float(limit.min)
+            width.slider.maximumValue = Float(limit.max)
+            height.slider.maximumValue = Float(limit.max)
+            width.slider.minimumValue = Float(limit.min)
+            height.slider.minimumValue = Float(limit.min)
         }
     }
     
@@ -71,11 +47,11 @@ public final class DemoCGSizeCell: DemoBasicCell {
         if let value = self.getter?() as? CGSize {
             self._size = value
             
-            self.widthValueLabel.text = String(format: "width: %.2f", self._size.width)
-            self.heightValueLabel.text = String(format: "height: %.2f", self._size.height)
+            self.width.label.text = String(format: "width: %.2f", self._size.width)
+            self.height.label.text = String(format: "height: %.2f", self._size.height)
             
-            self.widthValue.value = Float(self._size.width)
-            self.heightValue.value = Float(self._size.height)
+            self.width.slider.value = Float(self._size.width)
+            self.height.slider.value = Float(self._size.height)
         }
     }
 }

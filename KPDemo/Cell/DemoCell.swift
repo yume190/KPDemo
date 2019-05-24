@@ -27,20 +27,20 @@ open class DemoBasicCell: UITableViewCell, DemoCellShowable {
         label.font = UIFont.systemFont(ofSize: 15)
     }
     
-    internal final lazy var basicValueLabel: UILabel = UILabel.custom { (label) in
+    public final lazy var basicValueLabel: UILabel = UILabel.custom { (label) in
         label.font = UIFont.systemFont(ofSize: 15)
         label.numberOfLines = 0
     }
     
-    internal final lazy var stack: UIStackView = UIStackView.custom { (stack) in
+    public final lazy var stack: UIStackView = UIStackView.custom { (stack) in
         stack.axis = .vertical
         
         self.contentView.addSubview(stack)
         stack.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.topAnchor.constraint(equalTo: stack.topAnchor, constant: -8).isActive = true
         self.contentView.bottomAnchor.constraint(equalTo: stack.bottomAnchor, constant: 8).isActive = true
-        self.contentView.leadingAnchor.constraint(equalTo: stack.leadingAnchor, constant: -16).isActive = true
-        self.contentView.trailingAnchor.constraint(equalTo: stack.trailingAnchor, constant: 16).isActive = true
+        self.contentView.leadingAnchor.constraint(equalTo: stack.leadingAnchor, constant: -20).isActive = true
+        self.contentView.trailingAnchor.constraint(equalTo: stack.trailingAnchor, constant: 20).isActive = true
         
         stack.arrange(views: [
             self._stack,
@@ -58,7 +58,7 @@ open class DemoBasicCell: UITableViewCell, DemoCellShowable {
         self.setter = nil
     }
 
-    public func setup() {
+    open func setup() {
         _ = self.stack
         self.isNilSwitch.addTarget(
             self,
@@ -108,7 +108,7 @@ open class DemoBasicCell: UITableViewCell, DemoCellShowable {
         guard let value = self.getter?() else {return}
         let isOptional = Mirror(reflecting: value)
             .displayStyle == .optional
-        self.isNilSwitch.isHidden = !showable.isWritable && !isOptional
+        self.isNilSwitch.isHidden = !showable.isWritable || !isOptional
     }
     
     internal func getValue() {

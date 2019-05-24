@@ -31,3 +31,24 @@ import Foundation
 //    static var a: Int = 1
 //    static var b: Int = 2
 //}
+
+
+//extension OptionSet where RawValue: FixedWidthInteger {
+//    public static var allItem: [Self] {
+//        let size = RawValue.min == 0 ? RawValue.bitWidth : RawValue.bitWidth - 1
+//        let range = 0..<size
+//
+//        let numbers = [0] + range.map { (offSet: Int) -> RawValue in
+//            let mask = RawValue(1 << offSet)
+//            return RawValue.max & mask
+//        }
+//
+//        return numbers.compactMap { Self(rawValue: $0) }
+//    }
+//
+//    public static var all: Self {
+//        return self.allItem.reduce(Self()) { (o, next) -> Self in
+//            return o.union(next)
+//        }
+//    }
+//}

@@ -9,39 +9,27 @@
 import UIKit
 
 public class DemoBoolCell: DemoBasicCell {
-    private final lazy var boolSwitch: UISwitch = UISwitch()
-    private final lazy var boolValueLabel: UILabel = UILabel.custom()
+    private final lazy var value = UIStackView.customWithSwitch()
     
     override
     final public func setup() {
         super.setup()
         self.basicValueLabel.isHidden = true
-        let _stack: UIStackView = UIStackView.custom { (stack: UIStackView) in
-            stack.arrange(views: [
-                self.boolValueLabel,
-                self.boolSwitch,
-                ])
-        }
 
-        self.stack.addArrangedSubview(_stack)
+        self.stack.addArrangedSubview(value.stack)
         
-        self.boolSwitch.addTarget(
+        self.value.switch.addTarget(
             self,
             action: #selector(self.switching(sender:)),
             for: .valueChanged
         )
     }
     
-    override public func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
-    
     internal final override func getValue() {
         super.getValue()
         if let value = self.getter?() as? Bool {
-            self.boolValueLabel.text = "\(value)"
-            self.boolSwitch.isOn = value
+            self.value.label.text = "\(value)"
+            self.value.switch.isOn = value
         }
     }
 }

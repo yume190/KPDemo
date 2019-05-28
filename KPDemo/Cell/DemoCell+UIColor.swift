@@ -21,7 +21,7 @@ public final class DemoUIColorCell: DemoBasicCell {
     private final var _blue: CGFloat = 1
     private final var _alpha: CGFloat = 1
     private final var _color: UIColor {
-        return UIColor(red: _red/255, green: _green/255, blue: _blue/255, alpha: _alpha/100)
+        return UIColor(red: _red/255.0, green: _green/255.0, blue: _blue/255.0, alpha: _alpha/100.0)
     }
     
     final override public func setup() {
@@ -51,12 +51,12 @@ public final class DemoUIColorCell: DemoBasicCell {
     final override func getValue() {
         super.getValue()
         
-        if let value = self.getter?() as? UIColor {
+        if let value: UIColor = self.getter?() as? UIColor {
             self.getting(ui: value)
             return
         }
         
-        if let value = self.getter?() {
+        if let value: Any = self.getter?() {
             let cg = value as! CGColor
             self.getting(ui: UIColor(cgColor: cg))
         }
@@ -65,10 +65,10 @@ public final class DemoUIColorCell: DemoBasicCell {
     private final func getting(ui: UIColor) {
         ui.getRed(&_red, green: &_green, blue: &_blue, alpha: &_alpha)
         
-        _red = CGFloat(Int(_red*255))
-        _green = CGFloat(Int(_green*255))
-        _blue = CGFloat(Int(_blue*255))
-        _alpha = CGFloat(Int(_alpha*100))
+        _red = CGFloat(_red*255.0)
+        _green = CGFloat(_green*255.0)
+        _blue = CGFloat(_blue*255.0)
+        _alpha = CGFloat(_alpha*100.0)
         
         self.uiRed.label.text = "\(_red)"
         self.uiGreen.label.text = "\(_green)"

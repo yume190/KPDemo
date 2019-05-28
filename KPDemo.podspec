@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name     = 'KPDemo'
-    s.version  = '0.0.3'
+    s.version  = '0.0.4'
     s.license  = 'MIT'
     s.summary  = "Using KeyPath to create demo"
     s.homepage = 'https://github.com/yume190/KPDemo'

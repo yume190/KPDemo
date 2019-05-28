@@ -84,11 +84,11 @@ open class DemoBasicCell: UITableViewCell, DemoCellShowable {
     }
     
     private final func setupGetterAndSetter<T>(showable: DemoShowable, item: Demo<T>) {
-        weak var _showable = showable
+        weak var _showable: DemoShowable? = showable
         self.getter = {
             return _showable?[item]
         }
-        self.setter = { [weak self] any in
+        self.setter = { [weak self] (any: Any) in
             _showable?[item] = any
             if _showable?.isReloadWhenSet ?? false {
                 self?.tableView?.reloadData()
@@ -97,6 +97,7 @@ open class DemoBasicCell: UITableViewCell, DemoCellShowable {
     }
     
     internal func setupDefault(showable: DemoShowable) {
+        self._stack.isHidden = showable.name == nil || showable.name == ""
         self.nameLabel.text = showable.name
         
         self.typeLabel.isHidden = DemoConfig.default.isShowType
@@ -105,7 +106,7 @@ open class DemoBasicCell: UITableViewCell, DemoCellShowable {
         self.demoDescriptionLabel.text = showable.demoDescription
         self.demoDescriptionLabel.isHidden = showable.demoDescription == nil
         
-        guard let value = self.getter?() else {return}
+        guard let value: Any = self.getter?() else {return}
         let isOptional = Mirror(reflecting: value)
             .displayStyle == .optional
         self.isNilSwitch.isHidden = !showable.isWritable || !isOptional

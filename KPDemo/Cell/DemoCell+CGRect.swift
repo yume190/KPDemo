@@ -52,19 +52,18 @@ public final class DemoCGRectCell: DemoBasicCell {
     final override func getValue() {
         super.getValue()
         
-        if let value = self.getter?() as? CGRect {
-            self._rect = value
-            
-            self.x.label.text = String(format: "x: %.2f", self._rect.origin.x)
-            self.y.label.text = String(format: "y: %.2f", self._rect.origin.y)
-            self.width.label.text = String(format: "width: %.2f", self._rect.size.width)
-            self.height.label.text = String(format: "height: %.2f", self._rect.size.height)
-            
-            self.x.slider.value = Float(self._rect.origin.x)
-            self.y.slider.value = Float(self._rect.origin.y)
-            self.width.slider.value = Float(self._rect.size.width)
-            self.height.slider.value = Float(self._rect.size.height)
-        }
+        guard let value: CGRect = self.getter?() as? CGRect else {return}
+        self._rect = value
+        
+        self.x.label.text = String(format: "x: %.2f", self._rect.origin.x)
+        self.y.label.text = String(format: "y: %.2f", self._rect.origin.y)
+        self.width.label.text = String(format: "width: %.2f", self._rect.size.width)
+        self.height.label.text = String(format: "height: %.2f", self._rect.size.height)
+        
+        self.x.slider.value = Float(self._rect.origin.x)
+        self.y.slider.value = Float(self._rect.origin.y)
+        self.width.slider.value = Float(self._rect.size.width)
+        self.height.slider.value = Float(self._rect.size.height)
     }
 }
 

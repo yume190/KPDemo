@@ -42,27 +42,28 @@ public final class DemoCGPointCell: DemoBasicCell {
     final override func getValue() {
         super.getValue()
         
-        if let value = self.getter?() as? CGPoint {
-            self._point = value
-            
-            self.x.label.text = String(format: "x: %.2f", self._point.x)
-            self.y.label.text = String(format: "y: %.2f", self._point.y)
-            
-            self.x.slider.value = Float(self._point.x)
-            self.y.slider.value = Float(self._point.y)
-        }
+        guard let value: CGPoint = self.getter?() as? CGPoint else {return}
+        self._point = value
+        
+        self.x.label.text = String(format: "x: %.2f", self._point.x)
+        self.y.label.text = String(format: "y: %.2f", self._point.y)
+        
+        self.x.slider.value = Float(self._point.x)
+        self.y.slider.value = Float(self._point.y)
     }
 }
 
 // MARK: Actions
 extension DemoCGPointCell {
-    @objc func xing(sender: UISlider) {
+    @objc
+    private final func xing(sender: UISlider) {
         self._point.x = CGFloat(sender.value)
         self.setter?(self._point)
         self.getValue()
     }
     
-    @objc func ying(sender: UISlider) {
+    @objc
+    private final func ying(sender: UISlider) {
         self._point.y = CGFloat(sender.value)
         self.setter?(self._point)
         self.getValue()

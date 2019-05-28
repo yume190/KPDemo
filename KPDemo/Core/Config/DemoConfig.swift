@@ -22,13 +22,12 @@ public class DemoConfig {
     
     public static let `default`: DemoConfig = {
         let config = DemoConfig()
-        config.register(cell: DemoBoolCell.self)
-        config.register(cell: DemoUIColorCell.self)
-        config.register(cell: DemoCGRectCell.self)
-        config.register(cell: DemoCGSizeCell.self)
-        config.register(cell: DemoCGPointCell.self)
-        config.register(cell: DemoBoolCell.self)
         config.register(cell: DemoPrimtiveCell.self)
+        config.register(cell: DemoBoolCell.self)
+        config.register(cell: DemoCGRectCell.self)
+        config.register(cell: DemoCGPointCell.self)
+        config.register(cell: DemoCGSizeCell.self)
+        config.register(cell: DemoUIColorCell.self)
         return config
     }()
     

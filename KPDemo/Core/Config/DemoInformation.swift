@@ -11,7 +11,7 @@ import Foundation
 public enum DemoInfomation {
     case limit(Limit)
     case table([AnyHashable : String])
-    case list([(value: Any, title: String)])
+//    case list([(value: Any, title: String)])
     case other(Any)
     case nothing
 }

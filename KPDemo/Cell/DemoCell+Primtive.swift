@@ -27,6 +27,8 @@ public final class DemoPrimtiveCell: DemoBasicCell {
     
     override final func setupDefault(showable: DemoShowable) {
         super.setupDefault(showable: showable)
+//        self.value.slider.isHidden = !showable.isWritable
+        
         if case .limit(let limit) = showable.info {
             value.slider.maximumValue = Float(limit.max)
             value.slider.minimumValue = Float(limit.min)
@@ -49,7 +51,8 @@ public final class DemoPrimtiveCell: DemoBasicCell {
 
 // MARK: Actions
 extension DemoPrimtiveCell {
-    @objc func valueing(sender: UISlider) {
+    @objc
+    private func valueing(sender: UISlider) {
         self._value = NSNumber(value: sender.value)
         self.setter?(self._value)
         self.getValue()

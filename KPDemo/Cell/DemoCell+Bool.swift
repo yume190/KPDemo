@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class DemoBoolCell: DemoBasicCell {
+public final class DemoBoolCell: DemoBasicCell {
     private final lazy var value = UIStackView.customWithSwitch()
     
     override
@@ -23,6 +23,11 @@ public class DemoBoolCell: DemoBasicCell {
             action: #selector(self.switching(sender:)),
             for: .valueChanged
         )
+    }
+    
+    override final func setupDefault(showable: DemoShowable) {
+        super.setupDefault(showable: showable)
+//        self.value.switch.isHidden = !showable.isWritable
     }
     
     internal final override func getValue() {

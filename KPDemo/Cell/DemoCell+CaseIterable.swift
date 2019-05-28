@@ -25,9 +25,10 @@ public final class DemoEnumCell<E: CaseIterable>: DemoBasicCell, UIPickerViewDel
         self.stack.addArrangedSubview(value)
     }
     
-    override func getValue() {
-        guard let value = self.getter?() as? E else {return}
-        guard let index = self.all.firstIndex(of: value) else {return}
+    override final func getValue() {
+        super.getValue()
+        guard let value: E = self.getter?() as? E else {return}
+        guard let index: Int = self.all.firstIndex(of: value) else {return}
         self.value.selectRow(index, inComponent: 0, animated: false)
     }
     

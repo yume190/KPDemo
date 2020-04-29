@@ -9,8 +9,5 @@
 import UIKit
 
 public protocol Demoable: AnyObject {
-    associatedtype Target
-    var target: Target {get}
-    var config: DemoConfig {get}
-    var items: [DemoShowable] {get}
+    func setup(tableView: UITableView?)
 }

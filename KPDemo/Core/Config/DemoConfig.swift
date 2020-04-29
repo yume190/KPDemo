@@ -28,6 +28,7 @@ public class DemoConfig {
         config.register(cell: DemoCGPointCell.self)
         config.register(cell: DemoCGSizeCell.self)
         config.register(cell: DemoUIColorCell.self)
+        config.register(cell: DemoUIFontCell.self)
         return config
     }()
     

@@ -47,17 +47,17 @@ open class DemoBasicCell: UITableViewCell, DemoCellShowable {
             self.typeLabel,
             self.demoDescriptionLabel,
             self.basicValueLabel,
-            ])
+        ])
     }
     
-    public var getter: (() -> Any?)?
-    public var setter: ((Any?) -> Void)?
+    public private(set) var getter: (() -> Any?)?
+    public private(set) var setter: ((Any?) -> Void)?
     
     deinit {
         self.getter = nil
         self.setter = nil
     }
-
+    
     open func setup() {
         _ = self.stack
         self.isNilSwitch.addTarget(
@@ -90,9 +90,9 @@ open class DemoBasicCell: UITableViewCell, DemoCellShowable {
         }
         self.setter = { [weak self] (any: Any) in
             _showable?[item] = any
-            if _showable?.isReloadWhenSet ?? false {
-                self?.tableView?.reloadData()
-            }
+            guard _showable?.isReloadWhenSet ?? false else {return}
+            self?.tableView?.reloadData()
+            item.refresh()
         }
     }
     

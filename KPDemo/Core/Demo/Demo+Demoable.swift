@@ -8,19 +8,27 @@
 
 import UIKit
 
-public final class Demo<Target>: NSObject, UITableViewDelegate, UITableViewDataSource {
+//extension Demo: Demoable {}
+
+public class AnyDemoable: NSObject, Demoable {
+    public func setup(tableView: UITableView?) {}
+}
+
+public final class Demo<Target>: AnyDemoable, UITableViewDelegate, UITableViewDataSource {
     public final var target: Target
     public final let config: DemoConfig
     public final let items: [DemoShowable]
-    public init(target: Target, config: DemoConfig, items: [DemoShowable]) {
+    public final let refresh: () -> Void
+    public init(target: Target, config: DemoConfig, items: [DemoShowable], refresh: @escaping () -> Void = {}) {
         self.target = target
         self.config = config
         self.items = items
+        self.refresh = refresh
         super.init()
     }
     
     private final weak var tableView: UITableView?
-    public func setup(tableView: UITableView?) {
+    public override final func setup(tableView: UITableView?) {
         self.tableView = tableView
         
         guard let tableView = self.tableView else {return}
@@ -60,7 +68,7 @@ public final class Demo<Target>: NSObject, UITableViewDelegate, UITableViewDataS
         tableView.contentInset = .zero
         tableView.scrollIndicatorInsets = .zero
     }
-
+    
     public final func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
@@ -74,5 +82,3 @@ public final class Demo<Target>: NSObject, UITableViewDelegate, UITableViewDataS
     }
     
 }
-
-extension Demo: Demoable {}

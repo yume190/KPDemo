@@ -31,6 +31,7 @@
 		A835587122979AFA0032CD71 /* DemoCell+CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A835587022979AFA0032CD71 /* DemoCell+CaseIterable.swift */; };
 		A835587322979B640032CD71 /* DemoCell+OptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A835587222979B640032CD71 /* DemoCell+OptionSet.swift */; };
 		A838B7082294E3220012166B /* KPDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = A838B7062294E3220012166B /* KPDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A8DF85E924595ECA001ECCCF /* DemoCell+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF85E824595ECA001ECCCF /* DemoCell+UIFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		A838B7242294E3320012166B /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		A838B7262294E3320012166B /* DemoCellShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCellShowable.swift; sourceTree = "<group>"; };
 		A838B7272294E3320012166B /* DemoCellRegistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCellRegistable.swift; sourceTree = "<group>"; };
+		A8DF85E824595ECA001ECCCF /* DemoCell+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DemoCell+UIFont.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				A838B7132294E3320012166B /* DemoCell+CGSize.swift */,
 				A838B7172294E3320012166B /* DemoCell+CGRect.swift */,
 				A838B7182294E3320012166B /* DemoCell+UIColor.swift */,
+				A8DF85E824595ECA001ECCCF /* DemoCell+UIFont.swift */,
 				A835584C229664110032CD71 /* DemoCell+Picker.swift */,
 				A835587022979AFA0032CD71 /* DemoCell+CaseIterable.swift */,
 				A835587222979B640032CD71 /* DemoCell+OptionSet.swift */,
@@ -261,6 +264,7 @@
 				A835586B2296656B0032CD71 /* View+Custom.swift in Sources */,
 				A835587122979AFA0032CD71 /* DemoCell+CaseIterable.swift in Sources */,
 				A835584E229664350032CD71 /* DemoCell.swift in Sources */,
+				A8DF85E924595ECA001ECCCF /* DemoCell+UIFont.swift in Sources */,
 				A835586D22966ABF0032CD71 /* DemoInformation.swift in Sources */,
 				A8355858229664430032CD71 /* Limit.swift in Sources */,
 				A8355852229664350032CD71 /* DemoCell+CGPoint.swift in Sources */,
@@ -425,6 +429,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.KPDemo;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -452,6 +457,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.KPDemo;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

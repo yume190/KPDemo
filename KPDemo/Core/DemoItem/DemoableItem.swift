@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol DemoableItem {
+internal protocol DemoableItem {
     associatedtype Target
     associatedtype Value
     var keyPath: KeyPath<Target, Value> {get}

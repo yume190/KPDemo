@@ -8,8 +8,6 @@
 
 import UIKit
 
-//extension Demo: Demoable {}
-
 public class AnyDemoable: NSObject, Demoable {
     public func setup(tableView: UITableView?) {}
 }

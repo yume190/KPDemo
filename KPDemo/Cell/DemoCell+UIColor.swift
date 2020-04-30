@@ -56,7 +56,7 @@ public final class DemoUIColorCell: DemoBasicCell {
             return
         }
         
-        if let value: Any = self.getter?() {
+        if let value: Any = self.getter?(), type(of: value) == CGColor.self {
             let cg = value as! CGColor
             self.getting(ui: UIColor(cgColor: cg))
         }

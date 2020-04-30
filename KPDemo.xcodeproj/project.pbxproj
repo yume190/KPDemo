@@ -32,6 +32,7 @@
 		A835587322979B640032CD71 /* DemoCell+OptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A835587222979B640032CD71 /* DemoCell+OptionSet.swift */; };
 		A838B7082294E3220012166B /* KPDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = A838B7062294E3220012166B /* KPDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A8561AB7245A7AB100EB828E /* DemoTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8561AB6245A7AB100EB828E /* DemoTitleCell.swift */; };
+		A8561ABB245AA73500EB828E /* DemoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8561ABA245AA73500EB828E /* DemoBuilder.swift */; };
 		A8DF85E924595ECA001ECCCF /* DemoCell+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF85E824595ECA001ECCCF /* DemoCell+UIFont.swift */; };
 		A8DF85EB245A595E001ECCCF /* TitleDemoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF85EA245A595E001ECCCF /* TitleDemoItem.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		A838B7262294E3320012166B /* DemoCellShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCellShowable.swift; sourceTree = "<group>"; };
 		A838B7272294E3320012166B /* DemoCellRegistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCellRegistable.swift; sourceTree = "<group>"; };
 		A8561AB6245A7AB100EB828E /* DemoTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTitleCell.swift; sourceTree = "<group>"; };
+		A8561ABA245AA73500EB828E /* DemoBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBuilder.swift; sourceTree = "<group>"; };
 		A8DF85E824595ECA001ECCCF /* DemoCell+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DemoCell+UIFont.swift"; sourceTree = "<group>"; };
 		A8DF85EA245A595E001ECCCF /* TitleDemoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDemoItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 			children = (
 				A838B71B2294E3320012166B /* Demo+Demoable.swift */,
 				A838B71C2294E3320012166B /* Demoable.swift */,
+				A8561ABA245AA73500EB828E /* DemoBuilder.swift */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				A835587122979AFA0032CD71 /* DemoCell+CaseIterable.swift in Sources */,
 				A835584E229664350032CD71 /* DemoCell.swift in Sources */,
 				A8DF85E924595ECA001ECCCF /* DemoCell+UIFont.swift in Sources */,
+				A8561ABB245AA73500EB828E /* DemoBuilder.swift in Sources */,
 				A835586D22966ABF0032CD71 /* DemoInformation.swift in Sources */,
 				A8355858229664430032CD71 /* Limit.swift in Sources */,
 				A8355852229664350032CD71 /* DemoCell+CGPoint.swift in Sources */,
@@ -437,7 +441,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.6;
+				MARKETING_VERSION = 0.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.KPDemo;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -465,7 +469,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.6;
+				MARKETING_VERSION = 0.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.KPDemo;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

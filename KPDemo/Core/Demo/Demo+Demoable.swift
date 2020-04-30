@@ -25,6 +25,10 @@ public final class Demo<Target>: AnyDemoable, UITableViewDelegate, UITableViewDa
         super.init()
     }
     
+    public static func build(target: Target, config: DemoConfig, @DemoBuilder builder: () -> [DemoShowable], refresh: @escaping () -> Void = {}) -> Demo {
+        return .init(target: target, config: config, items: builder(), refresh: refresh)
+    }
+    
     private final weak var tableView: UITableView?
     public override final func setup(tableView: UITableView?) {
         self.tableView = tableView
@@ -53,7 +57,7 @@ public final class Demo<Target>: AnyDemoable, UITableViewDelegate, UITableViewDa
         let newFrame: CGRect = value.cgRectValue
         
         let insets: UIEdgeInsets =
-            UIEdgeInsets( top: 0, left: 0, bottom: newFrame.height, right: 0)
+            UIEdgeInsets(top: 0, left: 0, bottom: newFrame.height, right: 0)
         
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets

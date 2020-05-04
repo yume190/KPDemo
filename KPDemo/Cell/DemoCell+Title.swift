@@ -8,7 +8,7 @@
 
 import UIKit
 
-public final class DemoTitleCell: UITableViewCell, DemoCellShowable, DemoCellRegistable {
+public final class DemoTitleCell: UITableViewCell, DemoCellShowable {
     
     private final lazy var titleLabel: UILabel = UILabel.custom { (label) in
         label.font = UIFont.systemFont(ofSize: 15)
@@ -25,8 +25,6 @@ public final class DemoTitleCell: UITableViewCell, DemoCellShowable, DemoCellReg
     public let getter: (() -> Any?)? = nil
     public let setter: ((Any?) -> Void)? = nil
     
-    public static let registTypes: [Any.Type] = []
-    
     func setup() {
         _ = self.titleLabel
     }
@@ -42,6 +40,7 @@ public final class DemoTitleCell: UITableViewCell, DemoCellShowable, DemoCellReg
     }
     
     public func show<T>(showable: DemoShowable, item: Demo<T>) {
-        titleLabel.text = showable.demoDescription
+        guard let titleItem = showable as? TitleDemoItem else {return}
+        titleLabel.text = titleItem.title
     }    
 }

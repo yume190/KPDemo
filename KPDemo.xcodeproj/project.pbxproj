@@ -31,10 +31,12 @@
 		A835587122979AFA0032CD71 /* DemoCell+CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A835587022979AFA0032CD71 /* DemoCell+CaseIterable.swift */; };
 		A835587322979B640032CD71 /* DemoCell+OptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A835587222979B640032CD71 /* DemoCell+OptionSet.swift */; };
 		A838B7082294E3220012166B /* KPDemo.h in Headers */ = {isa = PBXBuildFile; fileRef = A838B7062294E3220012166B /* KPDemo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A8561AB7245A7AB100EB828E /* DemoTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8561AB6245A7AB100EB828E /* DemoTitleCell.swift */; };
+		A8561AB7245A7AB100EB828E /* DemoCell+Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8561AB6245A7AB100EB828E /* DemoCell+Title.swift */; };
 		A8561ABB245AA73500EB828E /* DemoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8561ABA245AA73500EB828E /* DemoBuilder.swift */; };
+		A8561ABD245AC06000EB828E /* DemoItem+Seperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8561ABC245AC06000EB828E /* DemoItem+Seperator.swift */; };
+		A8561ABF245AC08B00EB828E /* DemoCell+Seperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8561ABE245AC08B00EB828E /* DemoCell+Seperator.swift */; };
 		A8DF85E924595ECA001ECCCF /* DemoCell+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF85E824595ECA001ECCCF /* DemoCell+UIFont.swift */; };
-		A8DF85EB245A595E001ECCCF /* TitleDemoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF85EA245A595E001ECCCF /* TitleDemoItem.swift */; };
+		A8DF85EB245A595E001ECCCF /* DemoItem+Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DF85EA245A595E001ECCCF /* DemoItem+Title.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,10 +66,12 @@
 		A838B7242294E3320012166B /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		A838B7262294E3320012166B /* DemoCellShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCellShowable.swift; sourceTree = "<group>"; };
 		A838B7272294E3320012166B /* DemoCellRegistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCellRegistable.swift; sourceTree = "<group>"; };
-		A8561AB6245A7AB100EB828E /* DemoTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTitleCell.swift; sourceTree = "<group>"; };
+		A8561AB6245A7AB100EB828E /* DemoCell+Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DemoCell+Title.swift"; sourceTree = "<group>"; };
 		A8561ABA245AA73500EB828E /* DemoBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBuilder.swift; sourceTree = "<group>"; };
+		A8561ABC245AC06000EB828E /* DemoItem+Seperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DemoItem+Seperator.swift"; sourceTree = "<group>"; };
+		A8561ABE245AC08B00EB828E /* DemoCell+Seperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DemoCell+Seperator.swift"; sourceTree = "<group>"; };
 		A8DF85E824595ECA001ECCCF /* DemoCell+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DemoCell+UIFont.swift"; sourceTree = "<group>"; };
-		A8DF85EA245A595E001ECCCF /* TitleDemoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDemoItem.swift; sourceTree = "<group>"; };
+		A8DF85EA245A595E001ECCCF /* DemoItem+Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DemoItem+Title.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +136,8 @@
 				A835584C229664110032CD71 /* DemoCell+Picker.swift */,
 				A835587022979AFA0032CD71 /* DemoCell+CaseIterable.swift */,
 				A835587222979B640032CD71 /* DemoCell+OptionSet.swift */,
-				A8561AB6245A7AB100EB828E /* DemoTitleCell.swift */,
+				A8561AB6245A7AB100EB828E /* DemoCell+Title.swift */,
+				A8561ABE245AC08B00EB828E /* DemoCell+Seperator.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -173,7 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				A838B7212294E3320012166B /* DemoItem.swift */,
-				A8DF85EA245A595E001ECCCF /* TitleDemoItem.swift */,
+				A8561ABC245AC06000EB828E /* DemoItem+Seperator.swift */,
+				A8DF85EA245A595E001ECCCF /* DemoItem+Title.swift */,
 				A838B7222294E3320012166B /* DemoShowable.swift */,
 				A838B7232294E3320012166B /* DemoableItem.swift */,
 			);
@@ -242,6 +248,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = A838B6F92294E3220012166B;
 			productRefGroup = A838B7042294E3220012166B /* Products */;
@@ -268,8 +275,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8DF85EB245A595E001ECCCF /* TitleDemoItem.swift in Sources */,
-				A8561AB7245A7AB100EB828E /* DemoTitleCell.swift in Sources */,
+				A8DF85EB245A595E001ECCCF /* DemoItem+Title.swift in Sources */,
+				A8561AB7245A7AB100EB828E /* DemoCell+Title.swift in Sources */,
 				A835587322979B640032CD71 /* DemoCell+OptionSet.swift in Sources */,
 				A835585E229664500032CD71 /* DemoCellRegistable.swift in Sources */,
 				A835586B2296656B0032CD71 /* View+Custom.swift in Sources */,
@@ -285,8 +292,10 @@
 				A83558562296643E0032CD71 /* Demoable.swift in Sources */,
 				A835584D229664110032CD71 /* DemoCell+Picker.swift in Sources */,
 				A8355853229664350032CD71 /* DemoCell+CGRect.swift in Sources */,
+				A8561ABF245AC08B00EB828E /* DemoCell+Seperator.swift in Sources */,
 				A835585D229664500032CD71 /* DemoCellShowable.swift in Sources */,
 				A835585B229664470032CD71 /* DemoableItem.swift in Sources */,
+				A8561ABD245AC06000EB828E /* DemoItem+Seperator.swift in Sources */,
 				A8355857229664430032CD71 /* DemoConfig.swift in Sources */,
 				A8355851229664350032CD71 /* DemoCell+Bool.swift in Sources */,
 				A8355859229664470032CD71 /* DemoItem.swift in Sources */,
@@ -441,7 +450,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.8;
+				MARKETING_VERSION = 0.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.KPDemo;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -469,7 +478,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.8;
+				MARKETING_VERSION = 0.0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yume190.KPDemo;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

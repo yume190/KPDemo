@@ -35,4 +35,8 @@ public struct DemoBuilder {
     public static func buildExpression<Target, Value>(_ expression: DemoItem<Target, Value>) -> DemoItem<Target, Value> {
         return expression
     }
+    
+    public static func buildExpression(_ expression: DemoShowable) -> DemoShowable {
+        return expression
+    }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 public final class TitleDemoItem: DemoShowable {
-    public let demoDescription: String?
+    public let demoDescription: String? = nil
     public let cell: (UITableViewCell & DemoCellShowable).Type = DemoTitleCell.self
     public let info: DemoInfomation = .nothing
     public let isReloadWhenSet: Bool = false
@@ -18,8 +18,9 @@ public final class TitleDemoItem: DemoShowable {
     public let valueTypeName: String = ""
     public let isWritable: Bool = false
     
+    internal let title: String
     public init(_ title: String) {
-        self.demoDescription = title
+        self.title = title
     }
     
     public subscript<T>(item: Demo<T>) -> Any? {

@@ -29,8 +29,6 @@ public class DemoConfig {
         config.register(cell: DemoCGSizeCell.self)
         config.register(cell: DemoUIColorCell.self)
         config.register(cell: DemoUIFontCell.self)
-        
-        config.register(cell: DemoTitleCell.self)
         return config
     }()
     
